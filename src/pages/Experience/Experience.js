@@ -1,15 +1,12 @@
 import {
     Step,
-    StepDescription,
     StepIcon,
     StepIndicator,
     StepNumber,
     StepSeparator,
     StepStatus,
-    StepTitle,
     Stepper,
-    useSteps,
-    Box, Text,
+    Box,
     List, ListItem, ListIcon,
     Stack
   } from '@chakra-ui/react'

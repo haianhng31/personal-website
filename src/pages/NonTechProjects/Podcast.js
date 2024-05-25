@@ -47,6 +47,7 @@ const Podcast = () => {
        </UnorderedList>
         <iframe 
             // style="border-radius:12px" 
+            title="Spotify Player"
             src="https://open.spotify.com/embed/show/1YVabrodE065eLb3zJQ24n?utm_source=generator" 
             width="100%" height="352" 
             allowfullscreen="" 
@@ -58,43 +59,3 @@ const Podcast = () => {
 }
  
 export default Podcast;
-
-
-// import { Box, Text, Heading, UnorderedList, ListItem } from "@chakra-ui/react";
-
-// const Podcast = () => {
-//   return (
-//     <Box maxW="800px" mx="auto" py={8}>
-//       <Text fontSize="lg" lineHeight="tall" mb={6}>
-//         If you don't know yet, I love people and I love talking to people. It's always nice to hear stories from a life that isn't mine and to learn from them. It's also nice to remember how people can be so interesting and how life isn't limited to a specific set of forms.
-//       </Text>
-
-//       <Heading as="h4" size="md" mb={4}>
-//         So yes, I founded this podcast
-//       </Heading>
-//       <Text fontSize="lg" lineHeight="tall" mb={6}>
-//         Going to college, I'm no longer managing the podcast. But it's still pretty damn cool. It has become a legacy for my school and (hopefully) even the voice or face of the students.
-//       </Text>
-
-//       <Text fontSize="lg" lineHeight="tall" mb={4}>
-//         Now it has:
-//       </Text>
-//       <UnorderedList spacing={2} mb={8}>
-//         <ListItem>More than 60 episodes</ListItem>
-//         <ListItem>Thousands of listenings</ListItem>
-//         <ListItem>Even interviewed a celeb (yes I did that episode)</ListItem>
-//       </UnorderedList>
-
-//       <iframe 
-//             // style="border-radius:12px" 
-//             src="https://open.spotify.com/embed/show/1YVabrodE065eLb3zJQ24n?utm_source=generator" 
-//             width="100%" height="352" 
-//             allowfullscreen="" 
-//             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-//             loading="lazy">
-//         </iframe>
-//     </Box>
-//   );
-// };
-
-// export default Podcast;
