@@ -1,0 +1,19 @@
+.nontech.selected {
+    background-color: #e7b585 !important;
+  }
+
+.nontech:hover {
+    background-color: #e7b585 !important;
+}
+
+.nontech {
+    background-color: transparent !important;
+}
+
+/* .substack-feed-widget > * {
+    margin: 20px; 
+} */
+
+.substack-feed-widget{
+    background-color: transparent !important;
+}

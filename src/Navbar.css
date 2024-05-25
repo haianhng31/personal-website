@@ -1,0 +1,48 @@
+
+.website-navbar {
+    /* padding: 20px; */
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    /* margin: 0 auto; */
+    font-weight: 450;
+    max-width: 800px;
+    margin: 40px auto;
+    /* margin-left: 200px;
+    margin-right: 200px; */
+}
+
+.website-navbar h6 {
+    font-weight: 800;
+    font-size: 30px;
+}
+
+.website-navbar .links {
+    margin-left: auto;
+}
+
+.website-navbar a {
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 6px;
+    background-color: transparent; 
+    transition: all 250ms linear
+}
+
+.website-navbar button {
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 6px;
+    background-color: transparent; 
+}
+
+.links a:hover {
+    color: #75754A;
+    font-size: larger;
+}
+
+.website-navlink.active {
+    color: #75754A;
+    font-weight: 650;
+    text-decoration: none; 
+}
