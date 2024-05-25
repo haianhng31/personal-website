@@ -51,7 +51,10 @@ const Publication = () => {
         </GridItem>
       </Grid>
 
-      <iframe src="https://drive.google.com/file/d/1BLB1Uj5wOSX6JINQfXGGH4fY8hJFHK0_/preview#page=2" width="100%" height="900px" frameborder="0" allow="autoplay"></iframe>
+      <iframe 
+        title="My substack posts"
+        src="https://drive.google.com/file/d/1BLB1Uj5wOSX6JINQfXGGH4fY8hJFHK0_/preview#page=2" 
+        width="100%" height="900px" frameborder="0" allow="autoplay"></iframe>
     </>
   );
 };
