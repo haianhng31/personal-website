@@ -16,7 +16,7 @@ const NavBar = () => {
         <>
         {isSmallerThan768 && (
         <div className="website-navbar">
-            <Link to="/"><h6 className="my-name">HENNESSY</h6></Link>
+            <h6 className="my-name"><Link to="/">HENNESSY</Link></h6>
             <IconButton 
                 colorScheme='black' 
                 variant='link' 
