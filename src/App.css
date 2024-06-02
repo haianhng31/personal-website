@@ -71,3 +71,36 @@ h4 {
 a:hover {
   color: blue; /* Change to blue on hover */
 }
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  h6 {
+    font-size: 25px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  .content, .website-footer {
+    max-width: 400px;
+    padding: 10px auto;
+    margin: 25px
+  }
+}
