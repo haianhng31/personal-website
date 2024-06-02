@@ -8,6 +8,7 @@ import {
     ModalCloseButton,
     Button,
     Image, Box, Stack,
+    useMediaQuery
   } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
 
@@ -17,8 +18,15 @@ const ProjectModal = ({isOpen, onClose, project}) => {
         onClose();
         navigate('/contact')
     }
+
+    const [isSmallerThan480] = useMediaQuery('(max-width: 480px)');
+
+    let modalSize 
+    if (isSmallerThan480) { modalSize = 'full' }
+    else { modalSize = '3xl' }
+
     return ( 
-        <Modal isOpen={isOpen} onClose={onClose} size="3xl">
+        <Modal isOpen={isOpen} onClose={onClose} size={modalSize}>
             <ModalOverlay />
             <ModalContent>
             <ModalHeader>

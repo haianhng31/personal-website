@@ -46,3 +46,37 @@
     font-weight: 650;
     text-decoration: none; 
 }
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    .website-navbar {
+        display: flex; 
+        justify-content: space-between;
+        max-width: 400px;
+        padding: 10px auto;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        margin-left: 40px;
+        margin-right: 0px;
+    }
+
+    .website-navbar .links {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .my-name .links {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    .website-navbar a {
+        margin-left: 0;
+        margin-bottom: 8px;
+        padding: 5px;
+    }
+
+    .links a:hover {
+        font-size: initial; /* Maintain the original font size on hover for smaller screens */
+    }
+}

@@ -8,13 +8,21 @@ import {
     Stepper,
     Box,
     List, ListItem, ListIcon,
-    Stack
+    Stack,
+    useMediaQuery
   } from '@chakra-ui/react'
 import { FaStar } from "react-icons/fa";
 import { experiences } from '../../data'
 import { useState, useEffect } from 'react'
 
 const Experience = () => {
+    const [isSmallerThan480] = useMediaQuery('(max-width: 480px)');
+    const [isSmallerThan769] = useMediaQuery('(max-width: 769px)');
+    let maxWidth;
+    if (isSmallerThan480) { maxWidth = 350 }
+    else if (isSmallerThan769) { maxWidth = 550 }
+    else { maxWidth = 650 }
+
 
     const [activeStep, setActiveStep] = useState(0)
 
@@ -52,17 +60,27 @@ const Experience = () => {
           <StepStatus
             complete={<StepIcon />}
             incomplete={<StepNumber />}
-            // active={<StepNumber />}
             active={"👩🏻‍💻"}
           />
         </StepIndicator>
 
         <Box flexShrink='0'>
           <h3 style={{marginBottom: 2}}>{experience.title}</h3>
-          <Stack direction="row">
-            <h5 style={{marginBottom: 10}}><strong>{experience.company}</strong> | </h5>
-            <h5>{experience.description}</h5>
-          </Stack>
+          {!isSmallerThan480 && (
+            <Stack direction="row">
+              <h5 style={{marginBottom: 10, maxWidth: maxWidth}}><strong>{experience.company}</strong> | </h5>
+              <h5>{experience.description}</h5>
+            </Stack>
+          )}
+          {isSmallerThan480 && (
+            <>
+            {/* <Stack direction="column"> */}
+              <h5 style={{maxWidth: maxWidth}}><strong>{experience.company}</strong></h5>
+              <h5 style={{marginBottom: 12}}>{experience.description}</h5>
+            {/* </Stack> */}
+            </>
+          )}
+         
 
           <Box 
             maxW="100%"
@@ -72,9 +90,9 @@ const Experience = () => {
                 transition: 'height 0.3s ease, opacity 0.3s ease',
                 opacity: activeStep === index ? 1 : 0
             }}>
-            <List spacing={0} mb={7} maxW='650'>
+            <List spacing={0} mb={7} maxWidth={maxWidth}>
                 {experience.details.map((point, idx) => (
-                    <ListItem key={idx} style={{ wordBreak: 'break-word' }}>
+                    <ListItem key={idx} style={{ wordBreak: 'break-word'}}>
                         <ListIcon as={FaStar} color='green.500' />
                         {point}
                     </ListItem>

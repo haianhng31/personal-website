@@ -1,11 +1,16 @@
-import { Center, Grid, GridItem, Image, Box } from "@chakra-ui/react";
+import { Center, Grid, GridItem, Image, Box, useMediaQuery } from "@chakra-ui/react";
 
 const HumansOfNewYork = () => {
+    const [isSmallerThan480] = useMediaQuery('(max-width: 480px)');
+    let gridTemplateRows
+    if (isSmallerThan480) { gridTemplateRows = '1fr' }
+    else { gridTemplateRows = '1fr 60%' }
+    
     return (
     <>
     <p style={{fontSize: 16, marginLeft: 3}}><a href="https://www.instagram.com/viet.humansofny/">@viet.humansofny</a> is an Instagram project highlighting Vietnamese stories and voices in NYC. Through interviews and photos, we explore the experiences of both immigrants and US-born Vietnamese, fostering community and cultural insight. Follow for stories that celebrate heritage, challenge stereotypes, and promote unity.</p>
     
-    <Grid gridTemplateColumns={'1fr 60%'} paddingX={3} gap="10" marginY={10}>
+    <Grid gridTemplateColumns={gridTemplateRows} paddingX={3} gap="10" marginY={10}>
         <GridItem>
             <Box w="100%" h="100%" p={2} bg="#e47d1c" borderRadius={10} >
                 <Image
@@ -31,7 +36,7 @@ const HumansOfNewYork = () => {
     </Grid>
 
     <Center><h4 style={{marginBottom: 20, marginTop: 15}}>Some photos from the project</h4></Center>
-    <Grid templateColumns='repeat(2, 1fr)'>
+    <Grid templateColumns={gridTemplateRows}>
         <GridItem w="100%">
             <Image
                 src={"https://res.cloudinary.com/di6doert4/image/upload/v1716283729/Personal-Website/VHNY/9H5A2282-An_Nguyen-edit_n9x2ou.jpg"}

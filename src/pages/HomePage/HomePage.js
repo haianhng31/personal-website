@@ -1,4 +1,4 @@
-import { Avatar, Stack, Box, Grid, GridItem, Text } from "@chakra-ui/react";
+import { Avatar, Stack, Box, Grid, GridItem, Text, useMediaQuery } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from 'react';
 import {projects} from '../../data';
@@ -34,6 +34,7 @@ const HomePage = () => {
     const navigate = useNavigate();
     const [currentGreeting, setCurrentGreeting] = useState(0);
     const startTimeRef = useRef(Date.now());
+    const [isSmallerThan480] = useMediaQuery('(max-width: 480px)');
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -62,7 +63,9 @@ const HomePage = () => {
         alt='My avatar'
     />
 
-    <Stack direction={['column', 'row']}>
+    <Stack direction={['row']}>
+      {!isSmallerThan480 && (
+        <>
         <Text
             fontSize="5xl"
             fontWeight="bold"
@@ -71,6 +74,20 @@ const HomePage = () => {
             {greetings[currentGreeting]}
         </Text>
         <Text mt={0.3} fontSize="5xl" fontWeight="bold">I'm Hennessy Nguyen!</Text>
+        </>
+      )}
+      {isSmallerThan480 && (
+        <>
+        <Text
+            fontSize="3xl"
+            fontWeight="bold"
+            animation={`${fadeUpAnimation} 4s infinite ${animationDelay}`}
+        >
+            {greetings[currentGreeting]}
+        </Text>
+        <Text mt={0.3} fontSize="3xl" fontWeight="bold">I'm Hennessy!</Text>
+        </>
+      )}
     </Stack>
     
 
@@ -86,7 +103,7 @@ const HomePage = () => {
             cursor="pointer" 
             transition="background-color 0.3s ease"
             onClick={() => navigate('/about')}>
-            <p style={{color: "white", fontSize: '18px'}}>About</p>
+            <p style={{color: "white"}}>About</p>
         </Box>
         <p>, </p>
         <Box 
@@ -98,7 +115,7 @@ const HomePage = () => {
             cursor="pointer" 
             transition="background-color 0.3s ease"
             onClick={() => navigate('/experience')}>
-            <p style={{color: "white", fontSize: '18px'}}>Experience</p>
+            <p style={{color: "white"}}>Experience</p>
         </Box>
         <p>, </p>
         <Box 
@@ -110,7 +127,7 @@ const HomePage = () => {
             cursor="pointer" 
             transition="background-color 0.3s ease"
             onClick={() => navigate('/tech-projects')}>
-            <p style={{color: "white", fontSize: '18px'}}>Tech</p>
+            <p style={{color: "white"}}>Tech</p>
         </Box>
         <p>, or </p>
         <Box 
@@ -122,12 +139,27 @@ const HomePage = () => {
             cursor="pointer" 
             transition="background-color 0.3s ease"
             onClick={() => navigate('/non-tech-projects')}>
-            <p style={{color: "white", fontSize: '18px'}}>Non-Tech</p>
+            <p style={{color: "white"}}>Non-Tech</p>
         </Box>
     </Stack>
 
     <h2>Recent Projects</h2>
+    
+    {isSmallerThan480 && (
+      <Grid templateColumns='repeat(1, 1fr)' gap={6}>
+        {projects && projects.slice(0,4).map((project, idx) => (
+            <GridItem key={idx} w='100%' h='200' onClick={()=>navigate('/tech-projects')}>
+                <Project 
+                    projectDescription={project.projectDescription} 
+                    projectImg={project.projectImg} 
+                    projectName={project.projectName} 
+                    techStacks={project.techStacks}/>
+            </GridItem>
+        ))}
+      </Grid>
+    )}
 
+    {!isSmallerThan480 && (
     <Grid templateColumns='repeat(2, 1fr)' gap={6}>
         {projects && projects.slice(0,4).map((project, idx) => (
             <GridItem key={idx} w='100%' h='200' onClick={()=>navigate('/tech-projects')}>
@@ -139,6 +171,7 @@ const HomePage = () => {
             </GridItem>
         ))}
     </Grid>
+    )}
     {/* <Text>Read more</Text> */}
     </> );
 }
